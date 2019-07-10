@@ -21,7 +21,8 @@ var sum = 0
 for i in list{
     sum += i
 }
-var average: Double = Double(sum)/Double(list.count)
+
+var average: Double = Double(sum)/Double(list.count) 
 print(average)
 ```
 
@@ -36,20 +37,21 @@ Determine if a String is a pangram. A pangram is a string that contains every le
 //Q2
 var alphabet = Set("abcdefghijklmnopqrstuvwxyz")
 
-print(alphabet)
-
 var str = "The quick brown fox jumps over the lazy dog"
 //var str = "The quick brown fox jumped over the lazy dog"
 
 for char in str.lowercased(){
     alphabet.remove(char)
-}
+} //Removing the letter for the alphabet set when comming across it in the string
+
+//The alphabet set should be completely empty if the string is a panagram
 
 if alphabet.isEmpty{
     print("\"\(str)\" is a pangram")
 }else{
     print("\"\(str)\" is not a pangram")
-}
+} 
+
 
 ```
 
