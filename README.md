@@ -76,13 +76,14 @@ You are given an array `nums` representing the data status of the set S after th
 ```swift
 //Q3
 var nums = [1,2,2,4]
-var numSet = Set(nums)
+var setS = Set(nums)
 let n = 4
 
 var numDict: [Int:Int] = [:]
 var emptySet = Set<Int>()
 var arrayResult: [Int] = []
 
+//Creating a dictionary where the keys are the elements of the array, while the values are the frequency.
 for i in nums{
     if numDict.keys.contains(i){
         numDict.updateValue(numDict[i]!+1, forKey: i)
@@ -91,21 +92,25 @@ for i in nums{
     }
 }
 
+//Checking to see if frequency is exactly 2.  
 for (key,value) in numDict{
     if value == 2{
-        arrayResult.append(key)
+        arrayResult.append(key) //Add key to the array
     }
 }
 
 //print(numDict)
 //print(arrayResult)
 
+//Creating a set that set S is originally supposed to be.
 for i in 1...n{
 emptySet.insert(i)
 }
 
 //print(emptySet)
-var newSet = emptySet.subtracting(numSet)
+
+//Subtracting will result in a set that contains the missing number that setS originally had
+var newSet = emptySet.subtracting(setS)
 
 for i in newSet{
 arrayResult.append(i)
