@@ -13,6 +13,17 @@ Input: heights of trees below:
 Output:
 `169.375`
 
+```swift
+//Q1
+let list = Set([161, 182, 161, 154, 176, 170, 167, 171, 170, 174])
+var sum = 0
+
+for i in list{
+    sum += i
+}
+var average: Double = Double(sum)/Double(list.count)
+print(average)
+```
 
 ## Question 2
 
@@ -21,6 +32,26 @@ Determine if a String is a pangram. A pangram is a string that contains every le
  e.g `"The quick brown fox jumps over the lazy dog"` is a pangram
  e.g `"The quick brown fox jumped over the lazy dog"` is NOT a pangram
 
+```swift
+//Q2
+var alphabet = Set("abcdefghijklmnopqrstuvwxyz")
+
+print(alphabet)
+
+var str = "The quick brown fox jumps over the lazy dog"
+//var str = "The quick brown fox jumped over the lazy dog"
+
+for char in str.lowercased(){
+    alphabet.remove(char)
+}
+
+if alphabet.isEmpty{
+    print("\"\(str)\" is a pangram")
+}else{
+    print("\"\(str)\" is not a pangram")
+}
+
+```
 
 ## Question 3
 
@@ -40,6 +71,44 @@ You are given an array `nums` representing the data status of the set S after th
  Input: `nums = [2,2]`
  Output: `[2,1]`
 
+```swift
+//Q3
+var nums = [1,2,2,4]
+var numSet = Set(nums)
+let n = 4
+
+var numDict: [Int:Int] = [:]
+var emptySet = Set<Int>()
+var arrayResult: [Int] = []
+
+for i in nums{
+    if numDict.keys.contains(i){
+        numDict.updateValue(numDict[i]!+1, forKey: i)
+    }else{
+        numDict[i] = 1
+    }
+}
+
+for (key,value) in numDict{
+    if value == 2{
+        arrayResult.append(key)
+    }
+}
+
+//print(numDict)
+//print(arrayResult)
+
+for i in 1...n{
+emptySet.insert(i)
+}
+
+//print(emptySet)
+var newSet = emptySet.subtracting(numSet)
+
+for i in newSet{
+arrayResult.append(i)
+};print(arrayResult)
+```
 
 ## Question 4
 
@@ -50,6 +119,26 @@ let arr1 = [2, 4, 5, 6, 8, 10, 12]
 let arr2 = [1, 2, 3, 4, 5, 6]
 let arr3 = [5, 6, 7, 8, 9, 10, 11, 12]
 let arr4 = [1, 3, 4, 5, 6, 7, 9]
+```
+```swift
+//Q4 Solution
+let arr1 = [2, 4, 5, 6, 8, 10, 12]
+let arr2 = [1, 2, 3, 4, 5, 6]
+let arr3 = [5, 6, 7, 8, 9, 10, 11, 12]
+let arr4 = [1, 3, 4, 5, 6, 7, 9]
+
+var emptySet = Set<Int>()
+
+let set1 = Set(arr1)
+let set2 = Set(arr2)
+let set3 = Set(arr3)
+let set4 = Set(arr4)
+
+emptySet = set1.union(set2).union(set3).union(set4)
+
+var newArray = Array(emptySet).sorted()
+print(newArray)
+
 ```
 
 
@@ -65,6 +154,21 @@ Perform the following set operations on the lists below:
 ```swift
 let list1: Set = [1, 3, 4, 6, 2, 7, 9]
 let list2: Set = [3, 7, 13, 10, 4]
+```
+```swift
+//Q5
+
+let list1: Set = [1, 3, 4, 6, 2, 7, 9]
+let list2: Set = [3, 7, 13, 10, 4]
+
+print(list1.intersection(list2))
+
+print(list1.symmetricDifference(list2))
+
+print(list1.union(list2))
+
+print(list1.subtracting(list2))
+
 ```
 
 
@@ -87,10 +191,11 @@ print(spaceships.count)
 - 4
 - Nothing will be output
 - 0
-- This code will not compile
+- **This code will not compile**
 - 1
 - This code will compile but crash
 
+Answer: **This code will not compile**
 
 ## Question 7
 
@@ -117,3 +222,5 @@ if spaceships1.isSubset(of: spaceships2) {
 - This code will not compile
 - "This is a subset"
 - Nothing will be output
+
+Answer: **This code will not compile**
