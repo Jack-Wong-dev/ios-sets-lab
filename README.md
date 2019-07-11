@@ -136,12 +136,7 @@ let arr4 = [1, 3, 4, 5, 6, 7, 9]
 
 var emptySet = Set<Int>()
 
-let set1 = Set(arr1)
-let set2 = Set(arr2)
-let set3 = Set(arr3)
-let set4 = Set(arr4)
-
-emptySet = set1.union(set2).union(set3).union(set4)
+emptySet = Set(arr1).union(Set(arr2).union(Set(arr3)).union(Set(arr4)))
 
 var newArray = Array(emptySet).sorted()
 print(newArray)
