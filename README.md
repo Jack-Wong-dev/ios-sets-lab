@@ -141,7 +141,14 @@ emptySet = Set(arr1).union(Set(arr2).union(Set(arr3)).union(Set(arr4)))
 var newArray = Array(emptySet).sorted()
 print(newArray)
 
+
+//Another funny way of doing it
+
+var anotherArray = Array(Set(arr1).union(Set(arr2).union(Set(arr3)).union(Set(arr4)))).sorted()
+
+print(anotherArray)
 ```
+
 
 
 ## Question 5
